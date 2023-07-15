@@ -18,18 +18,18 @@ public interface StatsRepository extends JpaRepository<EndpointHit, Long> {
             "order by count(e.ip) desc")
     List<ViewStats> getStats(LocalDateTime timestampStart, LocalDateTime timestampEnd, Collection<String> uris);
 
-    @Query("select new ru.practicum.ewm.ViewStats(s.app, s.uri, count(distinct s.ip))" +
-            "from EndpointHit s " +
-            "where s.timestamp between ?1 and ?2 " +
-            "and s.uri in ?3 " +
-            "group by s.app, s.uri " +
-            "order by count(s.ip) desc")
+    @Query("select new ru.practicum.ewm.ViewStats(e.app, e.uri, count(distinct e.ip))" +
+            "from EndpointHit e " +
+            "where e.timestamp between ?1 and ?2 " +
+            "and e.uri in ?3 " +
+            "group by e.app, e.uri " +
+            "order by count(e.ip) desc")
     List<ViewStats> getDistinctStats(LocalDateTime timestampStart, LocalDateTime timestampEnd, Collection<String> uris);
 
-    @Query("select new ru.practicum.ewm.ViewStats(s.app, s.uri, count(s.ip))" +
-            "from EndpointHit s " +
-            "where s.timestamp between ?1 and ?2 " +
-            "group by s.app, s.uri " +
-            "order by count(s.ip) desc")
+    @Query("select new ru.practicum.ewm.ViewStats(e.app, e.uri, count(e.ip))" +
+            "from EndpointHit e " +
+            "where e.timestamp between ?1 and ?2 " +
+            "group by e.app, e.uri " +
+            "order by count(e.ip) desc")
     List<ViewStats> getAllStats(LocalDateTime timestampStart, LocalDateTime timestampEnd);
 }
