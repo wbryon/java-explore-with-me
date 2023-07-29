@@ -1,11 +1,12 @@
 package ru.practicum.ewm.event.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import org.jetbrains.annotations.NotNull;
 
-@Getter
-@Setter
+@Data
 public class Location {
-    private Float lat;
-    private Float lon;
+    @NotNull
+    Float lat;
+    @NotNull
+    Float lon;
 }

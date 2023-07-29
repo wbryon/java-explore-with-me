@@ -7,10 +7,9 @@ import java.time.LocalDateTime;
 
 @Data
 public class EndpointHitDto {
-    public static final String DTF = "yyyy-MM-dd HH:mm:ss";
     private String app;
     private String uri;
     private String ip;
-    @JsonFormat(pattern = DTF)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime timestamp;
 }

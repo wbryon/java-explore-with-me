@@ -2,10 +2,12 @@ package ru.practicum.ewm.event.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 import ru.practicum.ewm.category.model.Category;
 import ru.practicum.ewm.user.model.User;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -14,25 +16,32 @@ import javax.persistence.*;
 public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String title;
-    private String annotation;
-    private String description;
-    @ManyToOne
-    @JoinColumn(name = "category_id", referencedColumnName = "id")
-    private Category category;
-    private Long confirmedRequests;
-    private String createdOn;
-    private String eventDate;
+    Long id;
+    @Column(nullable = false, length = 120)
+    String title;
+    @Column(nullable = false, length = 2000)
+    String annotation;
+    @Column(nullable = false, length = 7000)
+    String description;
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    EventState state = EventState.PENDING;
+    @CreationTimestamp
+    LocalDateTime createdOn;
+    LocalDateTime publishedOn;
+    LocalDateTime eventDate;
     @ManyToOne
     @JoinColumn(name = "initiator_id", referencedColumnName = "id")
-    private User initiator;
-    private Float lat;
-    private Float lon;
-    private Boolean paid;
-    private Integer participantLimit;
-    private String publishedOn;
-    private Boolean requestModeration;
-    private EventState state;
-    private Long views;
+    User initiator;
+    Float lat;
+    Float lon;
+    @ManyToOne
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
+    Category category;
+    Boolean paid;
+    @Column(name = "moderation")
+    Boolean requestModeration;
+    Long participantLimit;
+    Long confirmedRequests;
+    long views;
 }
