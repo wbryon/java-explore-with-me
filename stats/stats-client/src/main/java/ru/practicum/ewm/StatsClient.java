@@ -1,8 +1,11 @@
 package ru.practicum.ewm;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.*;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -11,21 +14,19 @@ import java.util.List;
 public class StatsClient {
     private final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     private final WebClient webClient;
-    @Value("${client.url:http://localhost:9090}")
-    private String url;
 
-    public StatsClient() {
+    public StatsClient(@Value("${client.url:http://localhost:9090}") String url) {
         this.webClient = WebClient.builder()
                 .baseUrl(url)
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .build();
     }
 
-    public EndpointHitDto saveHit(EndpointHitDto hitDto) {
+    public EndpointHitDto saveHit(EndpointHitDto endpointHitDto) {
         return webClient
                 .post()
                 .uri("/hit")
-                .body(hitDto, EndpointHitDto.class)
+                .body(Mono.just(endpointHitDto), EndpointHitDto.class)
                 .retrieve()
                 .bodyToMono(EndpointHitDto.class)
                 .block();
