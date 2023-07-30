@@ -3,6 +3,7 @@ package ru.practicum.ewm.service;
 import org.springframework.stereotype.Service;
 import ru.practicum.ewm.EndpointHitDto;
 import ru.practicum.ewm.ViewStats;
+import ru.practicum.ewm.exception.WrongRequestException;
 import ru.practicum.ewm.mapper.EndpointHitMapper;
 import ru.practicum.ewm.repository.StatsRepository;
 
@@ -25,6 +26,8 @@ public class StatsServiceImpl implements StatsService {
 
     @Override
     public List<ViewStats> getStats(LocalDateTime start, LocalDateTime end, List<String> uris, Boolean unique) {
+        if (end.isBefore(start))
+            throw new WrongRequestException("Неверные параметры времени начала и конца");
         if (!unique) {
             if (uris.isEmpty())
                 return statsRepository.getAllStats(start, end)
