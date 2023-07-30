@@ -22,6 +22,7 @@ public class Request {
     @ManyToOne
     @JoinColumn(name = "requester_id", referencedColumnName = "id")
     private User requester;
+    @Enumerated(EnumType.STRING)
     private RequestStatus status;
     private LocalDateTime created;
 }
