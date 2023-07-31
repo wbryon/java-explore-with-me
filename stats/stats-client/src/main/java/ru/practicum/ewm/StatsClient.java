@@ -22,8 +22,8 @@ public class StatsClient {
                 .build();
     }
 
-    public void saveHit(EndpointHitDto endpointHitDto) {
-        webClient
+    public EndpointHitDto saveHit(EndpointHitDto endpointHitDto) {
+        return webClient
                 .post()
                 .uri("/hit")
                 .body(Mono.just(endpointHitDto), EndpointHitDto.class)
