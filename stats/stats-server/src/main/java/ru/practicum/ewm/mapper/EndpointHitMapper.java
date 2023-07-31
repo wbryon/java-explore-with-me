@@ -15,11 +15,11 @@ public class EndpointHitMapper {
     }
 
     public static EndpointHitReturnDto mapToEndpointHitDto(EndpointHit endpointHit) {
-        EndpointHitReturnDto returnDto = new EndpointHitReturnDto();
-        returnDto.setApp(endpointHit.getApp());
-        returnDto.setUri(endpointHit.getUri());
-        returnDto.setIp(endpointHit.getIp());
-        returnDto.setTimestamp(endpointHit.getTimestamp());
-        return returnDto;
+        EndpointHitReturnDto answerDTO = new EndpointHitReturnDto();
+        answerDTO.setApp(endpointHit.getApp());
+        answerDTO.setUri(endpointHit.getUri());
+        answerDTO.setIp(endpointHit.getIp());
+        answerDTO.setTimestamp(endpointHit.getTimestamp());
+        return answerDTO;
     }
 }

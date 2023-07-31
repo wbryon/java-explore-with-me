@@ -1,7 +1,7 @@
 package ru.practicum.ewm.exception;
 
 public class WrongRequestException extends RuntimeException {
-    public WrongRequestException(String message) {
+    public WrongRequestException(final String message) {
         super(message);
     }
 }

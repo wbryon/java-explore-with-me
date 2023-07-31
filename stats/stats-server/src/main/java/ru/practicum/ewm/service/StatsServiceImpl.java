@@ -10,8 +10,8 @@ import ru.practicum.ewm.model.EndpointHit;
 import ru.practicum.ewm.repository.StatsRepository;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class StatsServiceImpl implements StatsService {
@@ -32,14 +32,27 @@ public class StatsServiceImpl implements StatsService {
         if (end.isBefore(start))
             throw new WrongRequestException("Неверные параметры времени начала и конца");
         if (!unique) {
-            if (uris.isEmpty())
-                return statsRepository.getAllStats(start, end)
-                    .stream().map(StatsServiceImpl::setViewStats).collect(Collectors.toList());
-            return statsRepository.getStats(start, end, uris)
-                    .stream().map(StatsServiceImpl::setViewStats).collect(Collectors.toList());
+            if (uris.isEmpty()) {
+                List<ViewStats> viewStatsList = new ArrayList<>();
+                for (ViewStats viewStats : statsRepository.getAllStats(start, end)) {
+                    ViewStats stats = setViewStats(viewStats);
+                    viewStatsList.add(stats);
+                }
+                return viewStatsList;
+            }
+            List<ViewStats> viewStatsList = new ArrayList<>();
+            for (ViewStats viewStats : statsRepository.getStats(start, end, uris)) {
+                ViewStats stats = setViewStats(viewStats);
+                viewStatsList.add(stats);
+            }
+            return viewStatsList;
         }
-        return statsRepository.getDistinctStats(start, end, uris)
-                .stream().map(StatsServiceImpl::setViewStats).collect(Collectors.toList());
+        List<ViewStats> viewStatsList = new ArrayList<>();
+        for (ViewStats viewStats : statsRepository.getDistinctStats(start, end, uris)) {
+            ViewStats stats = setViewStats(viewStats);
+            viewStatsList.add(stats);
+        }
+        return viewStatsList;
     }
 
     private static ViewStats setViewStats(ViewStats viewStats) {
