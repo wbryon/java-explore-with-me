@@ -22,13 +22,13 @@ public class StatsClient {
                 .build();
     }
 
-    public void saveHit(EndpointHitDto endpointHitDto) {
-        webClient
+    public EndpointHitReturnDto saveHit(EndpointHitDto endpointHitDto) {
+        return webClient
                 .post()
                 .uri("/hit")
                 .body(Mono.just(endpointHitDto), EndpointHitDto.class)
                 .retrieve()
-                .bodyToMono(EndpointHitDto.class)
+                .bodyToMono(EndpointHitReturnDto.class)
                 .block();
     }
 

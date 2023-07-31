@@ -22,8 +22,8 @@ public class StatsController {
 
     @PostMapping("/hit")
     @ResponseStatus(HttpStatus.CREATED)
-    public void saveHit(@RequestBody @Valid EndpointHitDto hitDto) {
-        service.saveHit(hitDto);
+    public void saveHit(@RequestBody @Valid EndpointHitDto endpointHitDto) {
+        service.saveHit(endpointHitDto);
     }
 
     @GetMapping("/stats")
@@ -31,6 +31,6 @@ public class StatsController {
                                     @RequestParam(name = "end") @DateTimeFormat(pattern = DTF) LocalDateTime end,
                                     @RequestParam(name = "uris", required = false, defaultValue = "") List<String> uris,
                                     @RequestParam(name = "unique", required = false, defaultValue = "false") Boolean unique) {
-        return service.getStats(start, end, uris, unique);
+        return service.getAllStats(start, end, uris, unique);
     }
 }
