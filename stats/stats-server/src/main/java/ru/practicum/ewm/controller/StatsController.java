@@ -4,7 +4,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import ru.practicum.ewm.EndpointHitDto;
-import ru.practicum.ewm.EndpointHitReturnDto;
 import ru.practicum.ewm.ViewStats;
 import ru.practicum.ewm.service.StatsService;
 
@@ -23,7 +22,7 @@ public class StatsController {
 
     @PostMapping("/hit")
     @ResponseStatus(HttpStatus.CREATED)
-    public EndpointHitReturnDto saveHit(@RequestBody @Valid EndpointHitDto endpointHitDto) {
+    public EndpointHitDto saveHit(@RequestBody @Valid EndpointHitDto endpointHitDto) {
         return statsService.saveHit(endpointHitDto);
     }
 

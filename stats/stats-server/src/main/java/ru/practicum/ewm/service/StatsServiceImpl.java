@@ -2,7 +2,6 @@ package ru.practicum.ewm.service;
 
 import org.springframework.stereotype.Service;
 import ru.practicum.ewm.EndpointHitDto;
-import ru.practicum.ewm.EndpointHitReturnDto;
 import ru.practicum.ewm.ViewStats;
 import ru.practicum.ewm.exception.WrongRequestException;
 import ru.practicum.ewm.mapper.EndpointHitMapper;
@@ -22,7 +21,7 @@ public class StatsServiceImpl implements StatsService {
     }
 
     @Override
-    public EndpointHitReturnDto saveHit(EndpointHitDto hitDto) {
+    public EndpointHitDto saveHit(EndpointHitDto hitDto) {
         EndpointHit endpointHit = EndpointHitMapper.mapToEndpointHit(hitDto);
         return EndpointHitMapper.mapToEndpointHitDto(statsRepository.save(endpointHit));
     }

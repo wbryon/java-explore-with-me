@@ -1,7 +1,6 @@
 package ru.practicum.ewm.mapper;
 
 import ru.practicum.ewm.EndpointHitDto;
-import ru.practicum.ewm.EndpointHitReturnDto;
 import ru.practicum.ewm.model.EndpointHit;
 
 public class EndpointHitMapper {
@@ -14,8 +13,8 @@ public class EndpointHitMapper {
         return endpointHit;
     }
 
-    public static EndpointHitReturnDto mapToEndpointHitDto(EndpointHit endpointHit) {
-        EndpointHitReturnDto answerDTO = new EndpointHitReturnDto();
+    public static EndpointHitDto mapToEndpointHitDto(EndpointHit endpointHit) {
+        EndpointHitDto answerDTO = new EndpointHitDto();
         answerDTO.setApp(endpointHit.getApp());
         answerDTO.setUri(endpointHit.getUri());
         answerDTO.setIp(endpointHit.getIp());
