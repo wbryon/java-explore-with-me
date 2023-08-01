@@ -123,7 +123,8 @@ public class RequestServiceImpl implements RequestService {
 
     @Override
     public RequestDto cancelRequest(Long userId, Long requestId) {
-        Request request = requestRepository.findRequestById(requestId);
+        Request request = requestRepository.findById(requestId)
+                .orElseThrow(() -> new NotFoundException("Запрос с id: " + requestId + " не найден"));
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new NotFoundException("Пользователь с id = " + userId + " не найден"));
         if (!request.getRequester().equals(user))
