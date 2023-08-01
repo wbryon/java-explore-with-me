@@ -2,7 +2,6 @@ package ru.practicum.ewm.user.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import ru.practicum.ewm.user.dto.NewUserRequest;
 import ru.practicum.ewm.user.dto.UserDto;
 import ru.practicum.ewm.user.service.UserService;
 
@@ -22,7 +21,7 @@ public class UserController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public UserDto createUser(@RequestBody @Valid NewUserRequest userDto) throws ValidationException {
+    public UserDto createUser(@RequestBody @Valid UserDto userDto) throws ValidationException {
         return userService.createUser(userDto);
     }
 

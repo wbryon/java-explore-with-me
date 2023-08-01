@@ -5,7 +5,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import ru.practicum.ewm.exception.ConflictException;
-import ru.practicum.ewm.user.dto.NewUserRequest;
 import ru.practicum.ewm.user.dto.UserDto;
 import ru.practicum.ewm.user.mapper.UserMapper;
 import ru.practicum.ewm.user.model.User;
@@ -23,12 +22,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto createUser(NewUserRequest newUserRequest) {
+    public UserDto createUser(UserDto userDto) {
         User user;
         try {
-            user = userRepository.save(UserMapper.toUser(newUserRequest));
+            user = userRepository.save(UserMapper.toUser(userDto));
         } catch (DataIntegrityViolationException e) {
-            throw new ConflictException("Пользователь с именем: " + newUserRequest.getName() + " уже зарегистрирован");
+            throw new ConflictException("Пользователь с именем: " + userDto.getName() + " уже зарегистрирован");
         }
         return UserMapper.toUserDto(user);
     }
