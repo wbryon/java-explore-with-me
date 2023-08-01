@@ -14,16 +14,16 @@ import java.util.List;
 @RestController
 public class StatsController {
     private static final String DTF = "yyyy-MM-dd HH:mm:ss";
-    private final StatsService service;
+    private final StatsService statsService;
 
-    public StatsController(StatsService service) {
-        this.service = service;
+    public StatsController(StatsService statsService) {
+        this.statsService = statsService;
     }
 
     @PostMapping("/hit")
     @ResponseStatus(HttpStatus.CREATED)
-    public void saveHit(@RequestBody @Valid EndpointHitDto hitDto) {
-        service.saveHit(hitDto);
+    public EndpointHitDto saveHit(@RequestBody @Valid EndpointHitDto endpointHitDto) {
+        return statsService.saveHit(endpointHitDto);
     }
 
     @GetMapping("/stats")
@@ -31,6 +31,6 @@ public class StatsController {
                                     @RequestParam(name = "end") @DateTimeFormat(pattern = DTF) LocalDateTime end,
                                     @RequestParam(name = "uris", required = false, defaultValue = "") List<String> uris,
                                     @RequestParam(name = "unique", required = false, defaultValue = "false") Boolean unique) {
-        return service.getStats(start, end, uris, unique);
+        return statsService.getAllStats(start, end, uris, unique);
     }
 }

@@ -12,4 +12,13 @@ public class EndpointHitMapper {
         endpointHit.setTimestamp(endpointHitDto.getTimestamp());
         return endpointHit;
     }
+
+    public static EndpointHitDto mapToEndpointHitDto(EndpointHit endpointHit) {
+        EndpointHitDto answerDTO = new EndpointHitDto();
+        answerDTO.setApp(endpointHit.getApp());
+        answerDTO.setUri(endpointHit.getUri());
+        answerDTO.setIp(endpointHit.getIp());
+        answerDTO.setTimestamp(endpointHit.getTimestamp());
+        return answerDTO;
+    }
 }
