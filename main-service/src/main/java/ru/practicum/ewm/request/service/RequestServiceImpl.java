@@ -5,6 +5,7 @@ import ru.practicum.ewm.event.model.Event;
 import ru.practicum.ewm.event.model.EventState;
 import ru.practicum.ewm.event.repository.EventRepository;
 import ru.practicum.ewm.exception.ConflictException;
+import ru.practicum.ewm.exception.NotFoundException;
 import ru.practicum.ewm.exception.WrongRequestException;
 import ru.practicum.ewm.request.dto.EventRequestStatusUpdateRequest;
 import ru.practicum.ewm.request.dto.EventRequestStatusUpdateResult;
@@ -34,7 +35,8 @@ public class RequestServiceImpl implements RequestService {
 
     @Override
     public RequestDto createRequest(Long userId, Long eventId) {
-        User requester = userRepository.findUserById(userId);
+        User requester = userRepository.findById(userId)
+                .orElseThrow(() -> new NotFoundException("Пользователь с id = " + userId + " не найден"));
         Event event = eventRepository.findEventById(eventId);
         if (!requestRepository.getByRequesterIdAndEventId(userId, eventId).isEmpty())
             throw new ConflictException("Запрос для события с id: " + eventId + " уже создан ранее");
@@ -70,7 +72,8 @@ public class RequestServiceImpl implements RequestService {
 
     @Override
     public List<RequestDto> getRequestsByUser(Long userId) {
-        userRepository.findUserById(userId);
+        userRepository.findById(userId)
+                .orElseThrow(() -> new NotFoundException("Пользователь с id = " + userId + " не найден"));
         return requestRepository.getAllByRequesterId(userId)
                 .stream()
                 .map(RequestMapper::toRequestDto)
@@ -79,7 +82,8 @@ public class RequestServiceImpl implements RequestService {
 
     @Override
     public EventRequestStatusUpdateResult updateRequestStatus(Long userId, Long eventId, EventRequestStatusUpdateRequest eventRequestStatusUpdateRequest) {
-        User user = userRepository.findUserById(userId);
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new NotFoundException("Пользователь с id = " + userId + " не найден"));
         Event event = eventRepository.findEventById(eventId);
         if (!user.getId().equals(event.getInitiator().getId()))
             throw new WrongRequestException(
@@ -120,7 +124,8 @@ public class RequestServiceImpl implements RequestService {
     @Override
     public RequestDto cancelRequest(Long userId, Long requestId) {
         Request request = requestRepository.findRequestById(requestId);
-        User user = userRepository.findUserById(userId);
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new NotFoundException("Пользователь с id = " + userId + " не найден"));
         if (!request.getRequester().equals(user))
             throw new WrongRequestException("Пользователь не является создателем запроса");
         request.setStatus(RequestStatus.CANCELED);

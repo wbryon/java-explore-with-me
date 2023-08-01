@@ -87,7 +87,8 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public EventFullDto createEvent(NewEventDto newEventRequest, Long userId) {
-        User user = userRepository.findUserById(userId);
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new NotFoundException("Пользователь с id = " + userId + " не найден"));
         Event event = EventMapper.toEvent(newEventRequest);
         Category category = categoryRepository.findCategoryById(newEventRequest.getCategory());
         if (event.getEventDate().minusHours(2).isBefore(LocalDateTime.now()))
@@ -108,7 +109,8 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public EventFullDto getEvent(Long id, Long userId) {
-        userRepository.findUserById(userId);
+        userRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Пользователь с id = " + id + " не найден"));
         return EventMapper.toEventFullDto(eventRepository.findEventById(id));
     }
 
@@ -124,7 +126,8 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public EventFullDto updateEventByInitiator(Long userId, Long eventId, UpdateEventRequest updateEventDto) {
-        User user = userRepository.findUserById(userId);
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new NotFoundException("Пользователь с id = " + userId + " не найден"));
         Event event = eventRepository.findEventById(eventId);
         if (!user.getId().equals(event.getInitiator().getId()))
             throw new WrongRequestException(
