@@ -5,7 +5,7 @@ import lombok.Data;
 import ru.practicum.ewm.category.dto.CategoryDto;
 import ru.practicum.ewm.event.model.EventState;
 import ru.practicum.ewm.event.model.Location;
-import ru.practicum.ewm.user.dto.UserShortDto;
+import ru.practicum.ewm.user.dto.UserDto;
 
 import java.time.LocalDateTime;
 
@@ -20,7 +20,7 @@ public class EventFullDto   {
   Long confirmedRequests;
   LocalDateTime createdOn;
   String description;
-  UserShortDto initiator;
+  UserDto initiator;
   Location location;
   String title;
   EventState state;

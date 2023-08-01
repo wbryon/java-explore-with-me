@@ -31,7 +31,7 @@ public class EventMapper {
     public static EventFullDto toEventFullDto(Event event) {
         EventFullDto eventFullDto = new EventFullDto();
         eventFullDto.setId(event.getId());
-        eventFullDto.setInitiator(UserMapper.toUserShortDto(event.getInitiator()));
+        eventFullDto.setInitiator(UserMapper.toUserDtoShort(event.getInitiator()));
         eventFullDto.setEventDate(event.getEventDate());
         eventFullDto.setAnnotation(event.getAnnotation());
         eventFullDto.setDescription(event.getDescription());
@@ -54,7 +54,7 @@ public class EventMapper {
         eventShortDto.setId(event.getId());
         eventShortDto.setAnnotation(event.getAnnotation());
         eventShortDto.setCategory(CategoryMapper.toCategoryDto(event.getCategory()));
-        eventShortDto.setInitiator(UserMapper.toUserShortDto(event.getInitiator()));
+        eventShortDto.setInitiator(UserMapper.toUserDtoShort(event.getInitiator()));
         eventShortDto.setEventDate(event.getEventDate());
         eventShortDto.setViews(event.getViews());
         eventShortDto.setTitle(event.getTitle());
