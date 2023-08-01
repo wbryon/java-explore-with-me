@@ -111,7 +111,8 @@ public class EventServiceImpl implements EventService {
     public EventFullDto getEvent(Long id, Long userId) {
         userRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Пользователь с id = " + id + " не найден"));
-        return EventMapper.toEventFullDto(eventRepository.findEventById(id));
+        return EventMapper.toEventFullDto(eventRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Событие с id: " + id + " не найдено")));
     }
 
     @Override
@@ -128,7 +129,8 @@ public class EventServiceImpl implements EventService {
     public EventFullDto updateEventByInitiator(Long userId, Long eventId, UpdateEventRequest updateEventDto) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new NotFoundException("Пользователь с id = " + userId + " не найден"));
-        Event event = eventRepository.findEventById(eventId);
+        Event event = eventRepository.findById(eventId)
+                .orElseThrow(() -> new NotFoundException("Событие с id: " + eventId + " не найдено"));
         if (!user.getId().equals(event.getInitiator().getId()))
             throw new WrongRequestException(
                 "Пользователь с id: " + user.getId() + " не является создателем события с id: " + event.getId());
@@ -141,7 +143,8 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public EventFullDto updateEventByAdmin(Long eventId, UpdateEventRequest eventUpdateDto) {
-        Event event = eventRepository.findEventById(eventId);
+        Event event = eventRepository.findById(eventId)
+                .orElseThrow(() -> new NotFoundException("Событие с id: " + eventId + " не найдено"));
         if (event.getState().equals(EventState.PUBLISHED) || event.getState().equals(EventState.CANCELED))
             throw new ConflictException("Только ожидающие события могут быть обновлены");
         updateEventStatusByAdmin(eventUpdateDto, event);
@@ -208,7 +211,8 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public EventFullDto getEventPublic(Long eventId, HttpServletRequest request) {
-        Event event = eventRepository.findEventById(eventId);
+        Event event = eventRepository.findById(eventId)
+                .orElseThrow(() -> new NotFoundException("Событие с id: " + eventId + " не найдено"));
         if (!event.getState().equals(EventState.PUBLISHED))
             throw new NotFoundException("Событие не опубликовано");
         String uri = request.getRequestURI();

@@ -37,7 +37,8 @@ public class RequestServiceImpl implements RequestService {
     public RequestDto createRequest(Long userId, Long eventId) {
         User requester = userRepository.findById(userId)
                 .orElseThrow(() -> new NotFoundException("Пользователь с id = " + userId + " не найден"));
-        Event event = eventRepository.findEventById(eventId);
+        Event event = eventRepository.findById(eventId)
+                .orElseThrow(() -> new NotFoundException("Событие с id: " + eventId + " не найдено"));
         if (!requestRepository.getByRequesterIdAndEventId(userId, eventId).isEmpty())
             throw new ConflictException("Запрос для события с id: " + eventId + " уже создан ранее");
         if (!event.getState().equals(EventState.PUBLISHED))
@@ -84,7 +85,8 @@ public class RequestServiceImpl implements RequestService {
     public EventRequestStatusUpdateResult updateRequestStatus(Long userId, Long eventId, EventRequestStatusUpdateRequest eventRequestStatusUpdateRequest) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new NotFoundException("Пользователь с id = " + userId + " не найден"));
-        Event event = eventRepository.findEventById(eventId);
+        Event event = eventRepository.findById(eventId)
+                .orElseThrow(() -> new NotFoundException("Событие с id: " + eventId + " не найдено"));
         if (!user.getId().equals(event.getInitiator().getId()))
             throw new WrongRequestException(
                     "Пользователь с id: " + user.getId() + " не является создателем события с id: " + event.getId());

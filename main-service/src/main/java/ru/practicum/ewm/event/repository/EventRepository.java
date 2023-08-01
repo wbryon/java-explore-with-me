@@ -6,17 +6,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import ru.practicum.ewm.event.model.Event;
 import ru.practicum.ewm.event.model.EventState;
-import ru.practicum.ewm.exception.NotFoundException;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
 public interface EventRepository extends JpaRepository<Event, Long> {
-    default Event findEventById(Long id) {
-        return findById(id).orElseThrow(() -> new NotFoundException("Событие с id: " + id + " не найдено"));
-    }
-
     List<Event> getByInitiatorId(Long userId, Pageable pageable);
 
     List<Event> getFirstByCategoryId(Long categoryId);
