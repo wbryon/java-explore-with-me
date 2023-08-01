@@ -10,6 +10,7 @@ import ru.practicum.ewm.category.model.Category;
 import ru.practicum.ewm.category.repository.CategoryRepository;
 import ru.practicum.ewm.event.repository.EventRepository;
 import ru.practicum.ewm.exception.ConflictException;
+import ru.practicum.ewm.exception.NotFoundException;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -37,7 +38,8 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public CategoryDto updateCategory(CategoryDto categoryDto) {
-        Category category = categoryRepository.findCategoryById(categoryDto.getId());
+        Category category = categoryRepository.findById(categoryDto.getId())
+                .orElseThrow(() -> new NotFoundException("Категория с id: " + categoryDto.getId() + " не найдена"));
         category.setName(categoryDto.getName());
         Category updatedCategory;
         try {
@@ -50,7 +52,8 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public void deleteCategory(Long id) {
-        categoryRepository.findCategoryById(id);
+        categoryRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Категория с id: " + id + " не найдена"));
         if (!eventRepository.getFirstByCategoryId(id).isEmpty())
             throw new ConflictException("Невозможно удалить категорию, содержащую события");
         categoryRepository.deleteById(id);
@@ -58,7 +61,8 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public CategoryDto getCategoryById(Long id) {
-        return CategoryMapper.toCategoryDto(categoryRepository.findCategoryById(id));
+        return CategoryMapper.toCategoryDto(categoryRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Категория с id: " + id + " не найдена")));
     }
 
     @Override

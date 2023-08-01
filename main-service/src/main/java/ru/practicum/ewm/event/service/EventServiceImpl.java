@@ -90,7 +90,8 @@ public class EventServiceImpl implements EventService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new NotFoundException("Пользователь с id = " + userId + " не найден"));
         Event event = EventMapper.toEvent(newEventRequest);
-        Category category = categoryRepository.findCategoryById(newEventRequest.getCategory());
+        Category category = categoryRepository.findById(newEventRequest.getCategory())
+                .orElseThrow(() -> new NotFoundException("Категория с id: " + newEventRequest.getCategory() + " не найдена"));
         if (event.getEventDate().minusHours(2).isBefore(LocalDateTime.now()))
             throw new WrongRequestException("Некорректная дата события");
         if (newEventRequest.getPaid() == null)
@@ -234,7 +235,8 @@ public class EventServiceImpl implements EventService {
 
     private void updateEventParams(UpdateEventRequest updateEventDto, Event event) {
         if (updateEventDto.getCategory() != null)
-            event.setCategory(categoryRepository.findCategoryById(updateEventDto.getCategory()));
+            event.setCategory(categoryRepository.findById(updateEventDto.getCategory())
+                    .orElseThrow(() -> new NotFoundException("Категория с id: " + updateEventDto.getCategory() + " не найдена")));
         if (updateEventDto.getEventDate() != null) {
             if (updateEventDto.getEventDate().minusHours(2).isBefore(LocalDateTime.now()))
                 throw new WrongRequestException("Date of event is NOT correct");
