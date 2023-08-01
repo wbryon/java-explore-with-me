@@ -8,8 +8,10 @@ public class UserMapper {
 
     public static User toUser(UserDto userDto) {
         User user = new User();
-        user.setName(userDto.getName());
-        user.setEmail(userDto.getEmail());
+        if (userDto.getName() != null)
+            user.setName(userDto.getName());
+        if (userDto.getEmail() != null)
+            user.setEmail(userDto.getEmail());
         return user;
     }
 
@@ -18,7 +20,6 @@ public class UserMapper {
         userDto.setId(user.getId());
         userDto.setName(user.getName());
         userDto.setEmail(user.getEmail());
-
         return userDto;
     }
 

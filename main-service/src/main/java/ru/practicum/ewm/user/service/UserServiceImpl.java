@@ -23,29 +23,26 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto createUser(UserDto userDto) {
-        User user;
         try {
-            user = userRepository.save(UserMapper.toUser(userDto));
+            User user = userRepository.save(UserMapper.toUser(userDto));
+            return UserMapper.toUserDto(user);
         } catch (DataIntegrityViolationException e) {
             throw new ConflictException("Пользователь с именем: " + userDto.getName() + " уже зарегистрирован");
         }
-        return UserMapper.toUserDto(user);
     }
 
     @Override
     public List<UserDto> getAllUsers(List<Long> userIds, Integer from, Integer size) {
         Pageable pageable = PageRequest.of(from / size, size);
-        if (userIds == null || userIds.isEmpty()) {
+        if (userIds == null || userIds.isEmpty())
             return userRepository.findAll(pageable)
+                .stream()
+                .map(UserMapper::toUserDto)
+                .collect(Collectors.toList());
+        return userRepository.getAllByIdInOrderByIdDesc(userIds, pageable)
                     .stream()
                     .map(UserMapper::toUserDto)
                     .collect(Collectors.toList());
-        } else {
-            return userRepository.getAllByIdInOrderByIdDesc(userIds, pageable)
-                    .stream()
-                    .map(UserMapper::toUserDto)
-                    .collect(Collectors.toList());
-        }
     }
 
     @Override
