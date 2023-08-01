@@ -12,6 +12,7 @@ import ru.practicum.ewm.event.dto.EventShortDto;
 import ru.practicum.ewm.event.mapper.EventMapper;
 import ru.practicum.ewm.event.model.Event;
 import ru.practicum.ewm.event.repository.EventRepository;
+import ru.practicum.ewm.exception.NotFoundException;
 import ru.practicum.ewm.exception.WrongRequestException;
 
 import java.util.List;
@@ -42,7 +43,8 @@ public class CompilationServiceImpl implements CompilationService {
 
     @Override
     public CompilationDto updateCompilation(Long compId, NewCompilationDto request) {
-        Compilation compilation = compilationRepository.findCompilationById(compId);
+        Compilation compilation = compilationRepository.findById(compId)
+                .orElseThrow(() -> new NotFoundException("Подборка с id: " + compId + " не найдена"));
         if (request.getTitle() != null && request.getTitle().length() > 50)
             throw new WrongRequestException("Имя запроса длиннее 50 знаков");
         compilation.setPinned(request.isPinned());
@@ -74,7 +76,8 @@ public class CompilationServiceImpl implements CompilationService {
 
     @Override
     public CompilationDto getCompilationById(Long compId) {
-        Compilation compilation = compilationRepository.findCompilationById(compId);
+        Compilation compilation = compilationRepository.findById(compId)
+                .orElseThrow(() -> new NotFoundException("Подборка с id: " + compId + " не найдена"));
         List<EventShortDto> shortEvents = compilation
                 .getEvents()
                 .stream()
