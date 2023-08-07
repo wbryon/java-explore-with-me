@@ -24,6 +24,6 @@ public class Comment {
     private User author;
     @ManyToOne
     @JoinColumn(name = "event_id", referencedColumnName = "id")
-    private Event eventId;
+    private Event event;
     private LocalDateTime createdOn;
 }
