@@ -3,7 +3,6 @@ package ru.practicum.ewm.comment.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import ru.practicum.ewm.comment.dto.CommentDto;
-import ru.practicum.ewm.comment.dto.UpdateCommentDto;
 import ru.practicum.ewm.comment.service.CommentService;
 
 import javax.validation.Valid;
@@ -30,10 +29,10 @@ public class PublicCommentController {
 
     @PatchMapping("/{commentId}")
     @ResponseStatus(HttpStatus.OK)
-    public CommentDto updateComment(@RequestBody @Valid UpdateCommentDto updateCommentDto,
+    public CommentDto updateComment(@RequestBody @Valid CommentDto commentDto,
                                     @PathVariable Long userId,
                                     @PathVariable Long commentId) {
-        return commentService.updateComment(updateCommentDto, userId, commentId);
+        return commentService.updateComment(commentDto, userId, commentId);
     }
 
     @DeleteMapping("/{commentId}")
