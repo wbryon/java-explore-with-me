@@ -1,0 +1,1825 @@
+{
+	"info": {
+		"_postman_id": "ee1f84ed-698f-431f-9600-4bbcb35d8efd",
+		"name": "Test Explore With Me - feature Comments",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "26557683"
+	},
+	"item": [
+		{
+			"name": "Validation",
+			"item": [
+				{
+					"name": "Создание слишком короткого комментария",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"text\":\"Эх\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/:userId/comments/:eventId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":userId",
+								"comments",
+								":eventId"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "1",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								},
+								{
+									"key": "eventId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание слишком длинного комментария",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"text\":\"Равным образом начало повседневной работы по формированию позиции способствует подготовке и реализации существующих финансовых и административных условий! Задача организации, в особенности же сложившаяся структура организации играет важную роль в формировании системы обучения кадров, соответствующей насущным потребностям? Повседневная практика показывает, что постоянное информационно-техническое обеспечение нашей деятельности требует от нас системного анализа дальнейших направлений развития проекта. Не следует, однако, забывать о том, что сложившаяся структура организации требует от нас анализа ключевых компонентов планируемого обновления. Равным образом начало повседневной работы по формированию позиции требует определения и уточнения экономической целесообразности принимаемых решений! Разнообразный и богатый опыт консультация с профессионалами из IT позволяет выполнить важнейшие задания по разработке ключевых компонентов планируемого обновления. Таким образом, курс на социально-ориентированный национальный проект позволяет выполнить важнейшие задания по разработке системы масштабного изменения ряда параметров.Таким образом, выбранный нами инновационный путь позволяет оценить значение ключевых компонентов планируемого обновления. Значимость этих проблем настолько очевидна, что повышение уровня гражданского сознания обеспечивает актуальность системы масштабного изменения ряда параметров. Соображения высшего порядка, а также сложившаяся структура организации требует от нас системного анализа системы масштабного изменения ряда параметров. Практический опыт показывает, что постоянный количественный рост и сфера нашей активности обеспечивает актуальность соответствующих условий активизации. Равным образом консультация с профессионалами из IT играет важную роль в формировании существующих финансовых и административных условий? С другой стороны постоянное информационно-техническое обеспечение нашей деятельности способствует подготовке и реализации системы масштабного изменения ряда параметров. Таким образом, постоянный количественный рост и сфера нашей активности представляет собой интересный эксперимент проверки ключевых компонентов планируемого обновления! Не следует, однако, забывать о том, что консультация с профессионалами из IT требует определения и уточнения дальнейших направлений развитая системы массового участия.Значимость этих проблем настолько очевидна, что сложившаяся структура организации создаёт предпосылки качественно новых шагов для существующих финансовых и административных условий. С другой стороны рамки и место обучения кадров требует определения и уточнения позиций, занимаемых участниками в отношении поставленных задач? Практический опыт показывает, что новая модель организационной деятельности требует определения и уточнения системы обучения кадров, соответствующей насущным потребностям. Разнообразный и богатый опыт консультация с профессионалами из IT в значительной степени обуславливает создание новых предложений. Повседневная практика показывает, что сложившаяся структура организации играет важную роль в формировании соответствующих условий активизации.Значимость этих проблем настолько очевидна, что постоянный количественный рост и сфера нашей активности представляет собой интересный эксперимент проверки ключевых компонентов планируемого обновления! Соображения высшего порядка, а также выбранный нами инновационный путь обеспечивает широкому кругу специалистов участие в формировании новых предложений. Задача организации, в особенности же повышение уровня гражданского сознания...\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/:userId/comments/:eventId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":userId",
+								"comments",
+								":eventId"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "1",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "2"
+								},
+								{
+									"key": "eventId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пустого комментария",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"text\":\"  \"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/:userId/comments/:eventId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":userId",
+								"comments",
+								":eventId"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "1",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "2"
+								},
+								{
+									"key": "eventId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание комментария для несуществующего события",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"text\":\"Комментарий к несуществующему событию\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/:userId/comments/:eventId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":userId",
+								"comments",
+								":eventId"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "1",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								},
+								{
+									"key": "eventId",
+									"value": "99999"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание комментария несуществующим пользователем",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"text\":\"b\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/:userId/comments/:eventId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":userId",
+								"comments",
+								":eventId"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "1",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "2"
+								},
+								{
+									"key": "eventId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create comments",
+			"item": [
+				{
+					"name": "Создание комментария №1",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"text\":\"Это первый комментарий\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/:userId/comments/:eventId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":userId",
+								"comments",
+								":eventId"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "1",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								},
+								{
+									"key": "eventId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание комментария №2",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"text\":\"Это второй комментарий\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/:userId/comments/:eventId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":userId",
+								"comments",
+								":eventId"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "1",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "2"
+								},
+								{
+									"key": "eventId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание комментария №3",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"text\":\"Это третий комментарий\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/:userId/comments/:eventId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":userId",
+								"comments",
+								":eventId"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "1",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "3"
+								},
+								{
+									"key": "eventId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание комментария №4",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"text\":\"Это четвёртый комментарий\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/:userId/comments/:eventId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":userId",
+								"comments",
+								":eventId"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "1",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "2"
+								},
+								{
+									"key": "eventId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание комментария №5",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"text\":\"Это пятый комментарий\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/:userId/comments/:eventId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":userId",
+								"comments",
+								":eventId"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "1",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "3"
+								},
+								{
+									"key": "eventId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание дубликата комментария",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"тест комментария\", function () {\r",
+									"pm.expect(pm.response.text()).to.include(\"Для одного события пользователь может создать только один комментарий\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"text\":\"Это четвёртый комментарий\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/:userId/comments/:eventId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":userId",
+								"comments",
+								":eventId"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "1",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "2"
+								},
+								{
+									"key": "eventId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Update comments",
+			"item": [
+				{
+					"name": "Обновление комментария, когда пользователь не является автором",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"text\":\"Nice! I will try to be there!\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/:userId/comments/:commentId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":userId",
+								"comments",
+								":commentId"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "1",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "2"
+								},
+								{
+									"key": "commentId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновление комментария невалидными символами",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"text\":\"  \"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/:userId/comments/:commentId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":userId",
+								"comments",
+								":commentId"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "1",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								},
+								{
+									"key": "commentId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновление комментария",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"тест комментария\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"Nice! I will try to be there!\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"author\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"eventId\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"createdOn\");\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"text\":\"Nice! I will try to be there!\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/:userId/comments/:commentId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":userId",
+								"comments",
+								":commentId"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "1",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								},
+								{
+									"key": "commentId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get comments",
+			"item": [
+				{
+					"name": "Получение всех комментариев к событию",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"тест комментария\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Nice! I will try to be there!\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"Это третий комментарий\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"Это пятый комментарий\");\r",
+									"\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"text\":\"Это первый комментарий\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/comments/:eventId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"comments",
+								":eventId"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "1",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "eventId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получение всех комментариев автора",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"тест комментария\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"Это четвёртый комментарий\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"author\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"eventId\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"Это второй комментарий\");\r",
+									"\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"text\":\"Это первый комментарий\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/:userId/comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":userId",
+								"comments"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "1",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получение пользователем комментария №1",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"тест комментария\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"Nice! I will try to be there!\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"author\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"eventId\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"createdOn\");\r",
+									"\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"text\":\"Это первый комментарий\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/:userId/comments/:commentId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":userId",
+								"comments",
+								":commentId"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "1",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "2"
+								},
+								{
+									"key": "commentId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получение администратором комментария №1",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"тест комментария\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"Nice! I will try to be there!\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"author\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"eventId\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"createdOn\");\r",
+									"\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"text\":\"Это первый комментарий\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/:userId/comments/:commentId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":userId",
+								"comments",
+								":commentId"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "1",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "2"
+								},
+								{
+									"key": "commentId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Delete comments",
+			"item": [
+				{
+					"name": "Ошибка при удалении комментария пользователем, не являющегося автором",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/:userId/comments/:commentId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":userId",
+								"comments",
+								":commentId"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "1",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "3"
+								},
+								{
+									"key": "commentId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление комментария",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/:userId/comments/:commentId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":userId",
+								"comments",
+								":commentId"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "1",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								},
+								{
+									"key": "commentId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление комментария администратором",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/comments/:commentId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"comments",
+								":commentId"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "1",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "commentId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ошибка при получении удалённого комментария",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"text\":\"Это первый комментарий\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/:userId/comments/:commentId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":userId",
+								"comments",
+								":commentId"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "1",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "2"
+								},
+								{
+									"key": "commentId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

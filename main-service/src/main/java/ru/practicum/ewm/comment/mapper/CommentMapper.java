@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 public class CommentMapper {
     public static CommentDto toCommentDto(Comment comment) {
         CommentDto commentDto = new CommentDto();
+        commentDto.setId(comment.getId());
         commentDto.setAuthor(comment.getAuthor().getName());
         commentDto.setText(comment.getText());
         commentDto.setCreatedOn(comment.getCreatedOn());
@@ -26,12 +27,12 @@ public class CommentMapper {
         return comment;
     }
 
-    public static Comment updatedComment(CommentDto commentDto, Comment oldComment) {
+    public static Comment updateComment(CommentDto commentDto, Comment oldComment) {
         Comment comment = new Comment();
         comment.setId(oldComment.getId());
         comment.setAuthor(oldComment.getAuthor());
         comment.setEvent(oldComment.getEvent());
-            comment.setText(commentDto.getText());
+        comment.setText(commentDto.getText());
         comment.setCreatedOn(LocalDateTime.now());
         return comment;
     }

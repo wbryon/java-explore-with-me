@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 
 @Data
 public class CommentDto {
+    private Long id;
     @NotBlank
     @Length(min = 3, max = 512)
     private String text;

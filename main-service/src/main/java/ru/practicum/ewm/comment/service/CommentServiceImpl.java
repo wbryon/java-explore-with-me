@@ -23,7 +23,8 @@ public class CommentServiceImpl implements CommentService {
     private final EventRepository eventRepository;
     private final CommentRepository commentRepository;
 
-    public CommentServiceImpl(UserRepository userRepository, EventRepository eventRepository, CommentRepository commentRepository) {
+    public CommentServiceImpl(UserRepository userRepository, EventRepository eventRepository,
+                              CommentRepository commentRepository) {
         this.userRepository = userRepository;
         this.eventRepository = eventRepository;
         this.commentRepository = commentRepository;
@@ -49,7 +50,7 @@ public class CommentServiceImpl implements CommentService {
                 .orElseThrow(() -> new NotFoundException("Комментарий с id: " + commentId + " не найден"));
         if (!oldComment.getAuthor().equals(user))
             throw new WrongRequestException("User is not comment author");
-        Comment updatedComment = CommentMapper.updatedComment(commentDto, oldComment);
+        Comment updatedComment = CommentMapper.updateComment(commentDto, oldComment);
         return CommentMapper.toCommentDto(commentRepository.save(updatedComment));
     }
 
