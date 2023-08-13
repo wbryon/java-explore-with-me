@@ -10,29 +10,41 @@ import java.time.LocalDateTime;
 public class CommentMapper {
     public static CommentDto toCommentDto(Comment comment) {
         CommentDto commentDto = new CommentDto();
-        commentDto.setId(comment.getId());
-        commentDto.setAuthor(comment.getAuthor().getName());
-        commentDto.setText(comment.getText());
-        commentDto.setCreatedOn(comment.getCreatedOn());
-        commentDto.setEventId(comment.getEvent().getId());
+        if (comment.getId() != null)
+            commentDto.setId(comment.getId());
+        if (comment.getAuthor() != null)
+            commentDto.setAuthor(comment.getAuthor().getName());
+        if (comment.getText() != null)
+            commentDto.setText(comment.getText());
+        if (comment.getCreatedOn() != null)
+            commentDto.setCreatedOn(comment.getCreatedOn());
+        if (comment.getEvent().getId() != null)
+            commentDto.setEventId(comment.getEvent().getId());
         return commentDto;
     }
 
     public static Comment toComment(CommentDto commentDto, User author, Event event) {
         Comment comment = new Comment();
-        comment.setText(commentDto.getText());
-        comment.setAuthor(author);
-        comment.setEvent(event);
+        if (commentDto.getText() != null)
+            comment.setText(commentDto.getText());
+        if (author != null)
+            comment.setAuthor(author);
+        if (comment.getEvent() != null)
+            comment.setEvent(event);
         comment.setCreatedOn(LocalDateTime.now());
         return comment;
     }
 
     public static Comment updateComment(CommentDto commentDto, Comment oldComment) {
         Comment comment = new Comment();
-        comment.setId(oldComment.getId());
-        comment.setAuthor(oldComment.getAuthor());
-        comment.setEvent(oldComment.getEvent());
-        comment.setText(commentDto.getText());
+        if (oldComment.getId() != null)
+            comment.setId(oldComment.getId());
+        if (oldComment.getAuthor() != null)
+            comment.setAuthor(oldComment.getAuthor());
+        if (oldComment.getEvent() != null)
+            comment.setEvent(oldComment.getEvent());
+        if (oldComment.getText() == null)
+            comment.setText(commentDto.getText());
         comment.setCreatedOn(LocalDateTime.now());
         return comment;
     }
